@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% block content %}
 
-<h1>Game Details</h1>
+{% block content %}
+<h1>Games Details</h1>
 
 <div class="card">
   <div class="card-content">
@@ -9,6 +9,12 @@
     <p>Company: {{ game.company }}</p>
     <p>Description: {{ game.description }}</p>
   </div>
+
+  <div class="card-action">
+    <a href="{% url 'games_update' game.id %}">Edit</a>
+    <a href="{% url 'games_delete' game.id %}">Delete</a>
+  </div>
+
 </div>
 
 {% endblock %}

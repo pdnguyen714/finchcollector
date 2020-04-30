@@ -3,15 +3,15 @@
 {% block content %}
 <h1>Games List</h1>
 
-{% for game in games %}
+{% for game in game_list %}
   <div class="card">
     <div class="card-content">
       <span class="card-title">
-        <a href="{% url 'detail' game.id %}">
+        <a href="{% url 'games_detail' game.id %}">
           {{ game.name }}
         </a>
       </span>
-      <p>Name: {{ game.name }}</p>
+      <p>Company: {{ game.company }}</p>
       <p>Description: {{ game.description }}</p>
     </div>
   </div>
