@@ -19,7 +19,7 @@ class Game(models.Model):
         return reverse('games_detail', kwargs={ 'pk': self.id })
 
 class Supporting(models.Model):
-    date = models.DateField('supporting date')
+    date = models.DateField('supported date')
     support = models.CharField(
         max_length=1,
         choices=SUPPORTED,
