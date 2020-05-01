@@ -18,8 +18,8 @@ class Game(models.Model):
     def get_absolute_url(self):
         return reverse('games_detail', kwargs={ 'pk': self.id })
 
-class Supported(models.Model):
-    date = models.DateField('feeding date')
+class Supporting(models.Model):
+    date = models.DateField('supporting date')
     support = models.CharField(
         max_length=1,
         choices=SUPPORTED,
