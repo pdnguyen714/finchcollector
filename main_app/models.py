@@ -7,16 +7,27 @@ SUPPORTED = (
     ('X', 'Xbox')
 )
 
-class Game(models.Model):
-    name = models.CharField(max_length=100)
-    company = models.CharField(max_length=100)
-    description = models.TextField(max_length=250)
+class Award(models.Model):
+    name = models.CharField(max_length=50)
+    color = models.CharField(max_length=20)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('games_detail', kwargs={ 'pk': self.id })
+        return reverse('awards_detail', kwargs={'pk': self.id})
+
+class Game(models.Model):
+    name = models.CharField(max_length=100)
+    company = models.CharField(max_length=100)
+    description = models.TextField(max_length=250)
+    awards = models.ManyToManyField(Award)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('games_detail', kwargs={ 'game_id': self.id })
 
 class Supporting(models.Model):
     date = models.DateField('supported date')
